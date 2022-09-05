@@ -5,7 +5,6 @@ import SvgLoader from '@/components/common/SvgLoader.vue'
 import SideNavFooter from './SideNavFooter.vue'
 
 const sidenavRef = ref<HTMLElement | null>(null)
-const currentTab = ref('dashboard')
 
 function toggle() {
   sidenavRef.value?.classList.toggle('is-collapsed')
@@ -49,24 +48,22 @@ div(ref="sidenavRef").sidenav
   nav.sidenav__nav.nav
     ul.nav__list
       SideNavItem(
-        v-for="({ id, label, iconId }) in navFeaturesConfig"
+        v-for="({ id, label, iconId, routeName }) in navFeaturesConfig"
         :key="id"
         :label="label"
         :icon-id="iconId"
-        :is-active="currentTab === id"
-        @select="() => currentTab = id"
+        :route-name="routeName"
       )
 
     .nav__divider
 
     ul.nav__list
       SideNavItem(
-        v-for="({ id, label, iconId}) in navUserConfig"
+        v-for="({ id, label, iconId, routeName }) in navUserConfig"
         :key="id"
         :label="label"
         :icon-id="iconId"
-        :is-active="currentTab === id"
-        @select="() => currentTab = id"
+        :route-name="routeName"
       )
 
   SideNavFooter
@@ -119,7 +116,7 @@ $sidenav-gutter: 0.75rem;
   color: var(--text);
   flex: 0 0 auto;
   position: absolute;
-  left: 100%;
+  left: 90%;
 }
 
 .sidenav__button-icon {
@@ -259,7 +256,7 @@ $sidenav-gutter: 0.75rem;
   min-width: $icon-width;
 
   &::before {
-    background-color: var(--bg);
+    background-color: var(--border-primary);
     display: block;
     content: '';
     height: 0.99px;

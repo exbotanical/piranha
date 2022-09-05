@@ -7,15 +7,13 @@ export interface BadgeConfig {
 }
 
 const props = defineProps<{
-  isActive: boolean
   label: string
   iconId: string
+  routeName: string
   badgeConfig?: BadgeConfig
 }>()
 
-const $emit = defineEmits<{
-  (e: 'select'): void
-}>()
+const $router = useRouter()
 
 function normalizeCount(count: number) {
   return count > 99 ? `${count}+` : count
@@ -23,25 +21,26 @@ function normalizeCount(count: number) {
 </script>
 
 <template lang="pug">
-li.nav__item(
-  :class="isActive ? 'is-active' : ''"
-  @click="$emit('select')"
-)
-  button.nav__button
-    span.nav__icon
-      SvgLoader(
-        :name="props.iconId"
-      )
-
-    span.nav__label
-      | {{ props.label }}
-
-
-  span.nav__badge(
-    v-if="props.badgeConfig"
-    :class="props.badgeConfig.type === 'warn' ? 'warn' : ''"
+li.nav__item
+  RouterLink(
+    active-class="is-active"
+    :to="props.routeName"
   )
-    | {{ normalizeCount(props.badgeConfig.count) }}
+    button.nav__button
+      span.nav__icon
+        SvgLoader(
+          :name="props.iconId"
+        )
+
+      span.nav__label
+        | {{ props.label }}
+
+
+    span.nav__badge(
+      v-if="props.badgeConfig"
+      :class="props.badgeConfig.type === 'warn' ? 'warn' : ''"
+    )
+      | {{ normalizeCount(props.badgeConfig.count) }}
 </template>
 
 <style lang="scss" scoped>

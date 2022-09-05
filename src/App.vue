@@ -1,18 +1,12 @@
 <script lang="ts" setup>
 import SideNav from '@/components/SideNav/SideNav.vue'
+import Content from '@/views/ContentContainer.vue'
 
 const toggle = window.darkMode.toggle
 </script>
 
 <template lang="pug">
+button(@click="toggle")
 SideNav
-div.content
-  button(@click="toggle")
+router-view
 </template>
-
-<style lang="scss">
-.content {
-  background-color: var(--bg);
-  flex: 1;
-}
-</style>

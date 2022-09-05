@@ -19,7 +19,15 @@ body {
   display: flex;
   flex-flow: column nowrap;
   min-height: 100vh;
-  font-family: 'Lato', 'Arial', sans-serif;
+  font-family: $font-family;
+}
+
+h1 {
+  font-size: $font-size--xl;
+}
+
+a {
+  text-decoration: none;
 }
 
 #app {
