@@ -1,0 +1,14 @@
+{
+  "extends": [
+		"@magister_zito/vue",
+		"prettier"
+	],
+	"overrides": [
+		{
+			"files": ["**/*.ts"],
+			"parserOptions": {
+				"project": ["./tsconfig.json", "./tsconfig.node.json"]
+			}
+		}
+	]
+}

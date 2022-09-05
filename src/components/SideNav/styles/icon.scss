@@ -1,0 +1,10 @@
+@import '_var';
+
+@mixin icon {
+  height: $icon-width;
+  width: $icon-width;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+}

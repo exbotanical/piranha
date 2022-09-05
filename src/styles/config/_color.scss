@@ -1,0 +1,22 @@
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #333848;
+    --bg-secondary: #4f566b;
+    --color-primary: #affdbc;
+    --color-secondary: rgb(175, 253, 188);
+    --text: #dbdcdf;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #e7d3d3;
+    --bg-secondary: #a37a7a;
+    --color-primary: #f78a6f;
+    --color-secondary: #b45139;
+    --text: #fffdfa;
+  }
+}
+
+// $bg--dark--top: #272b38;
+// $bg--dark--bottom: #212631;

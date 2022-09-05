@@ -1,0 +1,20 @@
+@import '_var';
+
+@mixin label {
+  display: inline-block;
+  flex: 1;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition-property: opacity, transform;
+  transition-duration: $duration;
+  transition-timing-function: ease-out;
+  transition-delay: 100ms;
+
+  .is-collapsed & {
+    opacity: 0;
+    transform: translateX(1rem);
+    transition-delay: 0s;
+  }
+}

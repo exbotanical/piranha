@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "module": "ESNext",
+    "target": "ESNext",
+    "lib": ["DOM", "ESNext", "WebWorker"],
+    "strict": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+		"noEmit": true,
+    "types": [
+      "vite/client"
+    ],
+		"typeRoots": ["src/types/**/*.d.ts","node_modules/@types"],
+		"jsx": "preserve",
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  },
+  "include": ["src", "*.ts"],
+  "references": [
+    { "path": "./tsconfig.node.json" }
+  ]
+}
