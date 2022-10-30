@@ -12,7 +12,7 @@ div.dashboard.dashboard__container
 .dashboard {
   &__container {
     display: flex;
-    padding: 2.25rem 1rem 0 1rem;
+    padding: 0rem 2rem 2rem 0;
   }
 }
 </style>

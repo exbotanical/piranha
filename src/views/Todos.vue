@@ -33,6 +33,7 @@ function addtodo() {
 <template lang="pug">
 div.todo-list
   h1 Todos
+div
   section
     form.todo-list__form(
       @submit.stop.prevent="addtodo"
@@ -82,7 +83,7 @@ div.todo-list
   display: flex;
   flex-direction: column;
   list-style: none;
-  padding: 0;
+  padding: 0rem 2rem 2rem 0;
 
   &__form {
     display: flex;

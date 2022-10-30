@@ -5,6 +5,8 @@ import type { RouteRecordRaw } from 'vue-router'
 declare module 'vue-router' {
   interface RouteMeta {
     requiresAuth?: boolean
+    label?: string
+    iconId?: string
   }
 }
 

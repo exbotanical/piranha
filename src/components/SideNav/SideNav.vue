@@ -1,10 +1,15 @@
 <script lang="ts" setup>
 import SideNavItem from '@/components/SideNav/SideNavItem.vue'
-import { navFeaturesConfig, navUserConfig } from './templates'
 import SvgLoader from '@/components/common/SvgLoader.vue'
 import SideNavFooter from './SideNavFooter.vue'
 
 const sidenavRef = ref<HTMLElement | null>(null)
+
+const $router = useRouter()
+
+const routes = $router.options.routes
+  .slice(0, -1)
+  .flatMap(({ children }) => children)
 
 function toggle() {
   sidenavRef.value?.classList.toggle('is-collapsed')
@@ -48,23 +53,23 @@ div(ref="sidenavRef").sidenav
   nav.sidenav__nav.nav
     ul.nav__list
       SideNavItem(
-        v-for="({ id, label, iconId, routeName }) in navFeaturesConfig"
-        :key="id"
-        :label="label"
-        :icon-id="iconId"
-        :route-name="routeName"
+        v-for="(record) in routes"
+        :key="record?.name?.toString()"
+        :label="record?.meta?.label || 'TODO'"
+        :icon-id="record?.meta?.iconId || 'TODO'"
+        :name="record?.name?.toString() || 'TODO'"
       )
 
-    .nav__divider
+    //- .nav__divider
 
-    ul.nav__list
-      SideNavItem(
-        v-for="({ id, label, iconId, routeName }) in navUserConfig"
-        :key="id"
-        :label="label"
-        :icon-id="iconId"
-        :route-name="routeName"
-      )
+    //- ul.nav__list
+    //-   SideNavItem(
+    //-     v-for="({ id, label, iconId, routeName }) in navUserConfig"
+    //-     :key="id"
+    //-     :label="label"
+    //-     :icon-id="iconId"
+    //-     :route-name="routeName"
+    //-   )
 
   SideNavFooter
 </template>

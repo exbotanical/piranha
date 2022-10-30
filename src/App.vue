@@ -6,7 +6,8 @@ const toggle = window.darkMode.toggle
 </script>
 
 <template lang="pug">
-button(@click="toggle")
+//- button(@click="toggle")
+//-   | Mode
 SideNav
 router-view
 </template>

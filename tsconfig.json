@@ -9,18 +9,17 @@
     "esModuleInterop": true,
     "moduleResolution": "node",
     "resolveJsonModule": true,
-		"noEmit": true,
-    "types": [
-      "vite/client"
-    ],
-		"typeRoots": ["src/types/**/*.d.ts","node_modules/@types"],
-		"jsx": "preserve",
+    "noEmit": true,
+    "types": ["vite/client"],
+    "typeRoots": ["src/types/**/*.d.ts", "node_modules/@types"],
+    "jsx": "preserve",
     "paths": {
       "@/*": ["src/*"]
     }
   },
   "include": ["src", "*.ts"],
-  "references": [
-    { "path": "./tsconfig.node.json" }
-  ]
+  "references": [{ "path": "./tsconfig.node.json" }],
+  "vueCompilerOptions": {
+    "plugins": ["@volar/vue-language-plugin-pug"]
+  }
 }

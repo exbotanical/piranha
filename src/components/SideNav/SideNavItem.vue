@@ -9,7 +9,7 @@ export interface BadgeConfig {
 const props = defineProps<{
   label: string
   iconId: string
-  routeName: string
+  name: string
   badgeConfig?: BadgeConfig
 }>()
 
@@ -24,9 +24,9 @@ function normalizeCount(count: number) {
 li.nav__item
   RouterLink(
     active-class="is-active"
-    :to="props.routeName"
+    :to="props.name"
   )
-    button.nav__button
+    div.nav__button
       span.nav__icon
         SvgLoader(
           :name="props.iconId"

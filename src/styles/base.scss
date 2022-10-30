@@ -26,6 +26,14 @@ h1 {
   font-size: $font-size--xl;
 }
 
+h2 {
+  font-size: $font-size--md;
+}
+
+h1,h2,h3,h4,h5,h6,p {
+  margin: 0;
+}
+
 a {
   text-decoration: none;
 }
